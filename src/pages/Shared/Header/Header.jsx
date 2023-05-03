@@ -1,58 +1,116 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const Header = () => {
+
+  const [navbar, setNavbar] = useState(false);
+
+  const {user} = useContext(AuthContext);
+  console.log(user)
+
     return (
         <div>
-           <div className="md:container md:mx-auto navbar bg-base-100">
-  <div className="navbar-start">
-    <div className="dropdown">
-      <label tabIndex={0} className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-      </label>
-      <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-        <li><a>Home</a></li>
-        <li tabIndex={0}>
-          <a className="justify-between">
-            Parent
-            <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
-          </a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
-        <li><a>Item 3</a></li>
-      </ul>
-    </div>
-    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
-  </div>
-  <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-      <li><a>Home</a></li>
-      <li tabIndex={0}>
-        <a>
-          Parent
-          <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
-        </a>
-        <ul className="p-2">
-          <li><a>Submenu 1</a></li>
-          <li><a>Submenu 2</a></li>
-        </ul>
-      </li>
-      <li><a>Item 3</a></li>
-    </ul>
-  </div>
-  
-  <div className="navbar-end">
-  <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full">
-          <img src="https://img.freepik.com/free-photo/portrait-young-beautiful-woman-with-smoky-eyes-makeup-pretty-young-adult-girl-posing-studio-closeup-attractive-female-face_186202-4439.jpg?size=626&ext=jpg&ga=GA1.1.1436565612.1673088567&semt=ais" />
-        </div>
-      </label>
-    <a className="btn">Get started</a>
-  </div>
-  
-</div>
+            <nav className="w-full bg-white shadow">
+                <div className="justify-between  px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+                    <div>
+                        <div className="flex items-center justify-between py-3 md:py-5 md:block">
+                            <a href="">
+                                <h2 className="text-2xl font-bold">indian<span className='text-amber-500'>Masala</span>.<span className='text-stone-500'>House</span> </h2>
+                            </a>
+                            <div className="md:hidden">
+                                <button
+                                    className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
+                                    onClick={() => setNavbar(!navbar)}
+                                >
+                                    {navbar ? (
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="w-6 h-6"
+                                            viewBox="0 0 20 20"
+                                            fill="currentColor"
+                                        >
+                                            <path
+                                                fillRule="evenodd"
+                                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                clipRule="evenodd"
+                                            />
+                                        </svg>
+                                    ) : (
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="w-6 h-6"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            strokeWidth={2}
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                d="M4 6h16M4 12h16M4 18h16"
+                                            />
+                                        </svg>
+                                    )}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <div
+                            className={`flex justify-cent pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"}`} >
+                            <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+                                <li className="text-gray-600 hover:text-orange-500">
+                                    <Link to="/">Home</Link>
+                                </li>
+                                <li className="text-gray-600 hover:text-orange-500">
+                                    <Link to="/Blog">Blog</Link>
+                                </li>
+                                 {/* {user ? <li className="text-gray-600 hover:text-blue-600">
+                                    <button >Logout</button>
+                                </li> : <li className="text-gray-600 hover:text-blue-600">
+                                    <Link to="/Login">Login</Link>
+                                </li>} */}
+                                 {/*{user ? <User_Info></User_Info> : <li className="text-gray-600 hover:text-blue-600">
+                                    <Link to="/Register">Register</Link>
+                                </li>}
+                                {!user && <li className="text-gray-600 hover:text-blue-600">
+                                    <Link to="/OTP">OTP</Link>
+                                </li>} */}
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <div
+                            className={`flex justify-cent pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"}`} >
+                            <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+                                <li className="text-gray-600 hover:text-blue-600">
+                                    <Link to="">User_img</Link>
+                                </li>
+                                {
+                                  !user ?
+                                  <li className="text-gray-600 hover:text-blue-600">
+                                  <button className='text-center text-[#403f3f] font-[700] text-[.911em] md:text-[1em] hover:bg-yellow-400 hover:text-red-500 px-1 py-1 rounded-sm duration-200'>Login</button>
+                              </li>
+
+                                    :
+                                
+                                <li className="text-gray-600 hover:text-blue-600">
+                                <button className='text-center text-[#403f3f] font-[700] text-[.911em] md:text-[1em] hover:bg-yellow-400 hover:text-red-500 px-1 py-1 rounded-sm duration-200'>Logout</button>
+                            </li>
+                                }
+                                
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+            </nav>
         </div>
     );
 };

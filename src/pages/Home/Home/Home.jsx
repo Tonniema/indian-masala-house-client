@@ -1,40 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Banner from '../Banner';
+import Cards from '../Cards/Cards';
 
 const Home = () => {
+  const [chefInfo, setChefInfo] = useState([]);
+
+    useEffect(() =>{
+        fetch('http://localhost:5000/chef')
+        .then(res => res.json())
+        .then(data => setChefInfo(data))
+        .catch(error => console.error(error))
+    } , [])
+    console.log(chefInfo)
     return (
-        <div>
-           <div className="carousel w-full">
-  <div id="slide1" className="carousel-item relative w-full">
-    
-    <img src="https://t3.ftcdn.net/jpg/02/47/59/40/240_F_247594016_53pbhkNhJzfWnndxx5V2RTjXEVePCx37.jpg" className="w-full" />
-    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide4" className="btn btn-circle">❮</a> 
-      <a href="#slide2" className="btn btn-circle">❯</a>
-    </div>
-  </div> 
-  <div id="slide2" className="carousel-item relative w-full">
-    <img src="https://t4.ftcdn.net/jpg/02/01/19/37/240_F_201193784_V3IY8P0EajIqGl2R1D9Z4iy7dwFXKrdg.jpg" className="w-full" />
-    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide1" className="btn btn-circle">❮</a> 
-      <a href="#slide3" className="btn btn-circle">❯</a>
-    </div>
-  </div> 
-  <div id="slide3" className="carousel-item relative w-full">
-    <img src="https://t3.ftcdn.net/jpg/01/36/37/56/240_F_136375636_czqrHJVLsyGn5i1JyyF8Klu9M6iKFx8i.jpg" className="w-full" />
-    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide2" className="btn btn-circle">❮</a> 
-      <a href="#slide4" className="btn btn-circle">❯</a>
-    </div>
-  </div> 
-  <div id="slide4" className="carousel-item relative w-full">
-    <img src="https://t4.ftcdn.net/jpg/02/53/03/45/240_F_253034599_I9TTZnUx6YIE8AtTkdAoFlXnNlOKKwMT.jpg" className="w-full" />
-    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide3" className="btn btn-circle">❮</a> 
-      <a href="#slide1" className="btn btn-circle">❯</a>
-    </div>
-  </div>
-</div>
+      <div>
+        <Banner></Banner>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-3 px-3 py-3'>
+        {
+          chefInfo.map(chef => <Cards
+          key={chef.Chef_ID}
+          chef = {chef}
+          ></Cards>)
+
+        }
         </div>
+
+      </div>
     );
 };
 
