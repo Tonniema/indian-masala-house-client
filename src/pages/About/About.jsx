@@ -35,4 +35,3 @@ const About = () => {
 
 export default About;
 
-// complete
