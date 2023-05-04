@@ -1,13 +1,20 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../../providers/AuthProvider';
+import { AuthContext } from '../../../Providers/AuthProviders';
+import Active_Link from '../../../routes/Active_Link/Active_Link';
 
 const Header = () => {
+    const { user , Log_Out} = useContext(AuthContext)
+    
+    const handle_logout = () => {
+
+        Log_Out() // ʙᴇʜɪɴᴅ ᴛʜᴇ sᴇᴇɴ Log_Out = signOut(auth) ... .. . so,
+        .then(() => {})
+
+        .catch((error) => { console.log(error)});
+    }
 
   const [navbar, setNavbar] = useState(false);
-
-  const {user} = useContext(AuthContext);
-  console.log(user)
 
     return (
         <div>
@@ -15,6 +22,7 @@ const Header = () => {
                 <div className="justify-between  px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                     <div>
                         <div className="flex items-center justify-between py-3 md:py-5 md:block">
+                            
                             <a href="">
                                 <h2 className="text-2xl font-bold">indian<span className='text-amber-500'>Masala</span>.<span className='text-stone-500'>House</span> </h2>
                             </a>
@@ -63,10 +71,13 @@ const Header = () => {
                             className={`flex justify-cent pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"}`} >
                             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                                 <li className="text-gray-600 hover:text-orange-500">
-                                    <Link to="/">Home</Link>
+                                    <Active_Link to="/">Home</Active_Link>
                                 </li>
                                 <li className="text-gray-600 hover:text-orange-500">
-                                    <Link to="/Blog">Blog</Link>
+                                    <Active_Link to="/About">About Us</Active_Link>
+                                </li>
+                                <li className="text-gray-600 hover:text-orange-500">
+                                    <Active_Link to="/Blog">Blog</Active_Link>
                                 </li>
                                  {/* {user ? <li className="text-gray-600 hover:text-blue-600">
                                     <button >Logout</button>
@@ -88,18 +99,16 @@ const Header = () => {
                         <div
                             className={`flex justify-cent pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"}`} >
                             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                                <li className="text-gray-600 hover:text-blue-600">
-                                    <Link to="">User_img</Link>
-                                </li>
+                            <img className='h-12 w-12 rounded-full' src={user?.photoURL} alt="" title={user?.displayName}/>
                                 {
                                   !user ?
                                   <li className="text-gray-600 hover:text-blue-600">
-                                  <button className='text-center text-[#403f3f] font-[700] text-[.911em] md:text-[1em] hover:bg-yellow-400 hover:text-red-500 px-1 py-1 rounded-sm duration-200'>Login</button>
+                                  <button className='text-center text-[#403f3f] font-[700] text-[.911em] md:text-[1em] hover:bg-yellow-400 hover:text-red-500 px-1 py-1 rounded-sm duration-200'><Link to='/Login'>Login</Link></button>
                               </li>
 
                                     :
                                 
-                                <li className="text-gray-600 hover:text-blue-600">
+                                <li onClick={handle_logout} className="text-gray-600 hover:text-blue-600">
                                 <button className='text-center text-[#403f3f] font-[700] text-[.911em] md:text-[1em] hover:bg-yellow-400 hover:text-red-500 px-1 py-1 rounded-sm duration-200'>Logout</button>
                             </li>
                                 }

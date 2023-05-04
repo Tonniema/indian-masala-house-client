@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaThumbsUp} from 'react-icons/fa';
+import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
 const Cards = ({chef}) => {
@@ -8,9 +9,12 @@ const Cards = ({chef}) => {
     
     return (
         <div>
-             <div className="card bg-[#f336c72e] shadow-lg">
+            
+             <div className="card bg-gradient-to-r from-neutral-300 via-gray-200 shadow-lg  ">
                 <figure className="px-10 pt-10">
-                    <img src={Chef_Picture} alt="Chef_Picture" className="rounded-xl h-[12em] md:h-[15em]" />
+                    <LazyLoad>
+                    <img  src={Chef_Picture} alt="Chef_Picture" className="rounded-xl h-[12em] md:h-[15em] " />
+                    </LazyLoad>
                 </figure>
                 <div className="card-body items-center text-center">
                     <h2 className="card-title">{Chef_Name}</h2>
@@ -29,7 +33,7 @@ const Cards = ({chef}) => {
                         </div>
                     </div>
                     <div className="card-actions">
-                        <Link to = {`/chef/${Chef_ID}`}><button className="btn btn-primary">{Chef_View}</button></Link>
+                        <Link to = {`/chef/${Chef_ID}`}><button className="btn  bg-gradient-to-r from-red-600 via-red-500 to-red-600 ">{Chef_View}</button></Link>
                     </div>
                 </div>
             </div>
