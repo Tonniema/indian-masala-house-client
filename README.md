@@ -12,7 +12,6 @@
 ### • Included Error Page
 ### • create project with vite -> (npm create vite@latest my-project -- --template react)
 ### • set tailwind -> [link] (https://tailwindcss.com/)
-### • Add react router here -> [Link](https://reactrouter.com/en/main)
 ### •Add react icon -> [link] (https://react-icons.github.io/react-icons)
 ### • react hot toast -> [link] (https://react-hot-toast.com/)
 ### • install pdf downloader -> (npm i react-to-pdf --f)
