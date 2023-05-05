@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProviders';
 import Active_Link from '../../../routes/Active_Link/Active_Link';
+import { FaUserAlt } from 'react-icons/fa';
+
 
 const Header = () => {
     const { user , Log_Out} = useContext(AuthContext)
@@ -24,7 +26,7 @@ const Header = () => {
                         <div className="flex items-center justify-between py-3 md:py-5 md:block">
                             
                             <a href="">
-                                <h2 className="text-2xl font-bold">indian<span className='text-amber-500'>Masala</span>.<span className='text-stone-500'>House</span> </h2>
+                                <h2 className=" text-lg md:text-3xl font-bold">indian<span className='text-amber-500'>Masala</span>.<span className='text-stone-500'>House</span> </h2>
                             </a>
                             <div className="md:hidden">
                                 <button
@@ -68,7 +70,7 @@ const Header = () => {
 
                     <div>
                         <div
-                            className={`flex justify-cent pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"}`} >
+                            className={`flex justify-cent text-[0.90em] md:text-[1.5em] pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"}`} >
                             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                                 <li className="text-gray-600 hover:text-orange-500">
                                     <Active_Link to="/">Home</Active_Link>
@@ -99,17 +101,20 @@ const Header = () => {
                         <div
                             className={`flex justify-cent pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"}`} >
                             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                            <img className='h-12 w-12 rounded-full' src={user?.photoURL} alt="" title={user?.displayName}/>
+                            {
+                                user ?
+                                <img className='h-12 w-12 rounded-full' src={user?.photoURL} alt="" title={user?.displayName}/> : <FaUserAlt className='text-orange-500'></FaUserAlt>
+                            }
                                 {
                                   !user ?
                                   <li className="text-gray-600 hover:text-blue-600">
-                                  <button className='text-center text-[#403f3f] font-[700] text-[.911em] md:text-[1em] hover:bg-yellow-400 hover:text-red-500 px-1 py-1 rounded-sm duration-200'><Link to='/Login'>Login</Link></button>
+                                  <button className='text-center text-[#403f3f] font-[700] text-[.911em] md:text-[1.5em] hover:bg-yellow-400 hover:text-red-500 px-1 py-1 rounded-sm duration-200 '><Link to='/Login'>Login</Link></button>
                               </li>
 
                                     :
                                 
                                 <li onClick={handle_logout} className="text-gray-600 hover:text-blue-600">
-                                <button className='text-center text-[#403f3f] font-[700] text-[.911em] md:text-[1em] hover:bg-yellow-400 hover:text-red-500 px-1 py-1 rounded-sm duration-200'>Logout</button>
+                                <button className='text-center text-[#403f3f] font-[700] text-[.911em] md:text-[1.5em] hover:bg-yellow-400 hover:text-red-500 px-1 py-1 rounded-sm duration-200'>Logout</button>
                             </li>
                                 }
                                 
