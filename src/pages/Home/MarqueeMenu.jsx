@@ -4,11 +4,11 @@ import Marquee from 'react-fast-marquee';
 const MarqueeMenu = () => {
     return (
         <div>
-            <div className='text-center'>
+            <div className='text-center bg-[url("https://c8.alamy.com/comp/2H11JEP/abstract-neutral-background-white-geometric-mosaic-smooth-triangular-wallpaper-minimal-website-backdrop-elegant-light-template-vector-2H11JEP.jpg")]'>
                 <h2 className='text-orange-500 text-[1.6em] md:text-4xl py-4'>Weekly Specials</h2>
                 <h1 className='text-[1.6em] md:text-5xl font-bold pb-6'>Menu Of The Day</h1>
             </div>
-            <div className=' bg-[url("https://c8.alamy.com/comp/2H11JEP/abstract-neutral-background-white-geometric-mosaic-smooth-triangular-wallpaper-minimal-website-backdrop-elegant-light-template-vector-2H11JEP.jpg")] '>
+            <div className='  '>
         <Marquee speed={80} pauseOnClick>
           <div >
             <img className='md:w-[60%] w-[30%]' src="https://res.cloudinary.com/rainforest-cruises/images/c_fill,g_auto/f_auto,q_auto/w_1120,h_732,c_fill,g_auto/v1661347392/india-food-paratha/india-food-paratha-1120x732.jpg" alt="" />

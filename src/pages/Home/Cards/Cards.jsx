@@ -33,7 +33,7 @@ const Cards = ({chef}) => {
                         </div>
                     </div>
                     <div className="card-actions">
-                        <Link to = {`/chef/${Chef_ID}`}><button className="btn  bg-gradient-to-r from-red-600 via-red-500 to-red-600 ">{Chef_View}</button></Link>
+                        <Link to = {`/chef/${Chef_ID}`}><button className=" btn-error py-2 md:py-3 px-4 md:px-6 rounded-lg text-white hover:bg-orange-400">{Chef_View}</button></Link>
                     </div>
                 </div>
             </div>

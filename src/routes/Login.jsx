@@ -40,34 +40,34 @@ const Login = () => {
 
     const Login_With_Google = () => {
         Google_Login()
-        .then((result) => {
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
-            const user = result.user;
-            // setusers(user)
-            console.log(user);
-            // ...
-        }).catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            const email = error.customData.email;
-            const credential = GoogleAuthProvider.credentialFromError(error);
-            // ...
-        });
+            .then((result) => {
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                const user = result.user;
+                // setusers(user)
+                console.log(user);
+                // ...
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                const email = error.customData.email;
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                // ...
+            });
     }
     const Login_With_Github = () => {
         Github_Login()
-        .then((result) => {
-            const credential = GithubAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
-            const user = result.user;
-        }).catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            const email = error.customData.email;
-            const credential = GithubAuthProvider.credentialFromError(error);
-            // ...
-        });
+            .then((result) => {
+                const credential = GithubAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                const user = result.user;
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                const email = error.customData.email;
+                const credential = GithubAuthProvider.credentialFromError(error);
+                // ...
+            });
     }
     return (
         <section className='px-1 md:px-16 pt-2 md:pt-6 bg-[#f3f3f3] pb-5'>
@@ -77,13 +77,17 @@ const Login = () => {
                         <p className='text-center text-[#403f3f] font-[1000] text-[.911em] pt-6 md:pt-10 pb-1 md:pb-7 md:text-[2em]'>Login your account</p>
                         <p className='pt-3'><hr className=' w-[92%] border-[.1px] border-[#e7e7e7] mx-auto' /></p>
                         <div className='w-[80%] mx-auto pt-3'>
-                            <p className='md:text-[1em] text-[.85em] font-semibold'>Email </p>
+                            <p className='md:text-[1.2em] text-[.85em] font-semibold'>Email </p>
                             <p className='pt-1 md:pt-2'><input name='email' id="email" type='email' required="required" placeholder='Enter your Email address' className=" bg-[#f3f3f3] w-full py-2 md:py-4 pl-1 md:pl-2 text-[.65em] md:text-[.85em]" /></p>
                         </div>
                         <div className='w-[80%] mx-auto pt-3'>
-                            <p className='md:text-[1em] text-[.85em] font-semibold'>Password</p>
+                            <p className='md:text-[1.2em] text-[.85em] font-semibold'>Password</p>
                             <p className='pt-1 md:pt-2'><input name='password' id="password" type='text' required="required" placeholder='Enter your Password' className=" bg-[#f3f3f3] w-full py-2 md:py-4 pl-1 md:pl-2 text-[.65em] md:text-[.85em]" /></p>
+                            <label className="label">
+                            <a href="#" className=" hover:text-orange-500">Forgot password?</a>
+                        </label>
                         </div>
+                        
 
 
                         <div className='w-[80%] mx-auto pt-3 pb-2'>
