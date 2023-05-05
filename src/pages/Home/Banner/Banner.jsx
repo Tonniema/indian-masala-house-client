@@ -43,7 +43,7 @@ const Banner = () => {
 								Welcome to <br />{" "}
 								<span className="text-red-600">
 									{" "}
-									indian<span className='text-amber-500'>Masala</span>.<span className='text-stone-500'>House</span>
+									indian<span className='text-amber-500'>Masala</span>.<span className='text-stone-800'>House</span>
 								</span>
 							</h1>
 							<p className="w-[70%] text-lg pt-2 text-center">

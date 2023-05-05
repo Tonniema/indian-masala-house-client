@@ -8,7 +8,7 @@ const Story = () => {
             <div className="" style={{ backgroundImage: `url("https://img.freepik.com/premium-photo/flowers-composition-from-blue-hydrangea-flowers-white-background-spring-summer-template-your_511585-1487.jpg")` }}>
                 <div className="flex items-center flex-col-reverse md:flex-row justify-between py-4">
                     <div className='mx-2 '>
-                        
+
                         {/* image magnify used */}
 
                     <ReactImageMagnify {...{
@@ -20,8 +20,8 @@ const Story = () => {
                             },
                             largeImage: {
                                 src:storyImg,
-                                width: 1200,
-                                height: 1200
+                                width: 1000,
+                                height: 950
                             }
                         }} /> 
                         
