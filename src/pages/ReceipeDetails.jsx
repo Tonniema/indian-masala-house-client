@@ -40,8 +40,8 @@ const ReceipeDetails = ({receipe}) => {
         <div className='py-3 px-3'>
             <p className='text-center italic font-[900] text-xs md:text-2xl text-orange-600'>{Recipe_Of}</p>
             <section>
-                <div className="card card-side bg-gradient-to-r from-slate-300 via-slate-100 to-slate-300 shadow-lg">
-                    <figure><img className='w-[700px] h-[450px]' src={Recipe_Picture} alt="Recipe Picture is loading... it can takes few minutes.. please wait.." /></figure>
+                <div className="card flex-col md:flex-row card-side bg-gradient-to-r from-slate-300 via-slate-100 to-slate-300 shadow-lg">
+                    <figure><img className='md:w-[700px] w-[292px] md:h-[450px]' src={Recipe_Picture} alt="Recipe Picture is loading... it can takes few minutes.. please wait.." /></figure>
                     <div className="card-body">
                         <h2 className="card-title">{Recipe_Name}</h2>
                         <p>Ingredients: {Recipe_Ingredients}.</p>

@@ -21,15 +21,15 @@ const Receipe = () => {
                                 <img className='h-[250px]' src={receipeData[0].Chef_Picture} alt="" />
                                 </LazyLoad>
                             </div>
-                            <h1 className="text-5xl font-bold pt-2">{receipeData[0].Chef_Name}</h1>
+                            <h1 className="md:text-5xl font-bold pt-2">{receipeData[0].Chef_Name}</h1>
                             <p className="py-3">{receipeData[0].Chef_Bio}.</p>
-                            <div className='flex gap-x-[22em] text-xs items-center'>
+                            <div className='flex justify-between md:gap-x-[22em] text-xs md:items-center'>
                                 <div className=''>
                                     <p>{receipeData[0].Chef_Experience} Experienced</p>
                                     <p>{receipeData[0].Chef_Recipes} Recipes</p>
                                 </div>
 
-                                <div className='flex gap-x-1'>
+                                <div className='flex  md:gap-x-1'>
                                     <FaThumbsUp></FaThumbsUp>
                                     <p>{receipeData[0].Chef_Like}</p>
                                 </div>

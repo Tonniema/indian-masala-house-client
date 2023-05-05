@@ -18,7 +18,7 @@ const Register = () => {
         // console.log(name, Photo_URL, email, password);
         set_error_Message("")
 
-        VALIDATION
+        // VALIDATION
         if (!/(?=.*[A-Z])/.test(password)) {
             set_error_Message("Please at least set one uppercase later of your password")
             return;
