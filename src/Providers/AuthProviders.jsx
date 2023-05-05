@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { getAuth , createUserWithEmailAndPassword , signInWithEmailAndPassword , onAuthStateChanged , signOut , GoogleAuthProvider ,signInWithPopup, updateProfile, GithubAuthProvider } from "firebase/auth";
+import { getAuth , createUserWithEmailAndPassword , signInWithEmailAndPassword , onAuthStateChanged , signOut , GoogleAuthProvider ,signInWithPopup, updateProfile, GithubAuthProvider, sendPasswordResetEmail } from "firebase/auth";
 import app from '../firebase/firebase.config';
 export const AuthContext = createContext(null)
 
@@ -10,14 +10,14 @@ const AuthProviders = ( {children}) => {
     const [user , setuser] = useState(null)
     const [loading , setloading] = useState(true)
 
-    const Create_User = (email , passward) => {
+    const Create_User = (email , password) => {
         setloading(true)
-        return createUserWithEmailAndPassword (auth ,email, passward )
+        return createUserWithEmailAndPassword (auth ,email, password )
      }
 
-    const User_Login = (email , passward) => {
+    const User_Login = (email , password) => {
         setloading(true)
-        return signInWithEmailAndPassword (auth ,email, passward )
+        return signInWithEmailAndPassword (auth ,email, password )
      }
 
      const Google_Login = () => {
@@ -27,6 +27,10 @@ const AuthProviders = ( {children}) => {
     const Github_Login = () => {
         setloading(true)
         return signInWithPopup(auth, Github_Auth_Provider)
+     }
+
+     const Forget_Password = (reset_email) => {
+        return sendPasswordResetEmail(auth, reset_email)
      }
     
      useEffect(()=>{
@@ -49,7 +53,8 @@ const AuthProviders = ( {children}) => {
         User_Login,
         Log_Out,
         Google_Login,
-        Github_Login
+        Github_Login,
+        Forget_Password
 
        }
     return (

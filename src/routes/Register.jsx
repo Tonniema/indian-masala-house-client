@@ -92,8 +92,8 @@ const Register = () => {
                             </div>
                         </div>
 
-                        <div className='w-[80%] mx-auto pt-3 pb-2'>
-                            <p className='pt-1 md:pt-2'><input type="submit" value="Register" className=" bg-slate-500 w-full py-2 md:py-[9px] pl-1 md:pl-2 text-[.65em] font-bold text-yellow-50 md:text-[1.3em]" /></p>
+                        <div className='w-[80%] mx-auto pt-3 pb-2 '>
+                            <p className=' pt-1 md:pt-2'><input type="submit" value="Register" className=" bg-slate-500 w-full py-2 md:py-[9px] pl-1 md:pl-2 text-[.65em] font-bold text-yellow-50 md:text-[1.3em] cursor-grab" /></p>
                         </div>
                         <p className='text-center font-bold text-[1.5em] text-red-500'>{error_Message}</p>
                         <p className='text-center font-bold text-[1.5em] text-green-400'>{success}</p>

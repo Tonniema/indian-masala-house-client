@@ -126,7 +126,7 @@ const Blog = () => {
             </div>
             <div className='flex justify-center pb-6'>
             <Pdf targetRef={ref} filename="code-example.pdf">
-                                {({ toPdf }) => <button className="btn btn-error " onClick={toPdf}>Generate Pdf</button>}
+                                {({ toPdf }) => <button className="btn btn-error text-white " onClick={toPdf}>Generate Pdf</button>}
                             </Pdf>
             
             </div>

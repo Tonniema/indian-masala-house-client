@@ -3,6 +3,7 @@ import { useState , useEffect } from "react";
 import { FaHeart } from "react-icons/fa";
 import toast from 'react-hot-toast';
 
+
 const ReceipeDetails = ({receipe}) => {
     console.log(receipe)
     const { Recipe_Of, Recipe_Picture, Recipe_Name, Recipe_Ingredients, Recipe_Cooking, Recipe_Rating, Recipe_ID, Chef_Name, Chef_Picture, Chef_Experience, Chef_Recipes, Chef_Like, Chef_Bio } = receipe;
